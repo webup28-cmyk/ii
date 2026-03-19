@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-parchment: #f5f2ed;
+  --color-ink: #1a1a1a;
+}
+
+@layer base {
+  body {
+    @apply bg-parchment text-ink font-serif selection:bg-ink/10 min-h-screen relative;
+    background-image: 
+      radial-gradient(circle at 50% 120%, rgba(242, 125, 38, 0.08) 0%, transparent 70%),
+      url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%, auto;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar for museum feel */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink/20;
+  }
+}
+
+.cinematic-transition {
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.panel-gradient {
+  background: radial-gradient(circle at center, #8b0000 0%, #4a0000 100%);
+  position: relative;
+}
+
+.panel-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.3;
+  pointer-events: none;
+}
